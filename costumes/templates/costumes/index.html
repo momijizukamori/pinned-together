@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}| Costumes{% endblock %}
+{% block content %}
+ <ul>
+    {% for costume in costume_list %}
+        <div class="costume"><a href="{% url 'costumepage' costume.id %}">{{ costume.character }} [{{ costume.variant }}]</a>
+        <br>{{ costume.series }} </div>
+    {% endfor %}
+    </ul>
+
+{% endblock %}

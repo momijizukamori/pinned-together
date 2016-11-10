@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class ="title">{{ costume.character }} [{{ costume.variant}}] - {{ costume.series }}</h3>
+<a href="">{ cosplayer }</a>
+
+    {% for ref in refphotos %}
+    <div class="photo reference"><a href=""><img src=""></a></div>
+    {% endfor %}
+
+    {% for photo in cosphotos %}
+    <div class="photo costume"><a href=""><img src=""></a></div>
+    {% endfor %}
+
+    <div class="components">
+    {% for component in components %}
+            <div class="component-item">
+            <b>{{ component.title }}</b>
+            {{ component.notes }}
+            </div>
+{% endfor %}
+{% endblock %}

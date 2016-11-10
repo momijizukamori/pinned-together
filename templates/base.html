@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" class="js" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<title>Pinned Together {% block title %}{% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" media="all" href="{% static "system.css" %}">
+<link type="text/css" rel="stylesheet" media="all" href="{% static "system-menus.css" %}">
+<link type="text/css" rel="stylesheet" media="all" href="{% static "style.css" %}">
+</head>
+
+<body>
+
+<div id="mainWrapper">
+
+    <div id="wrapper">
+
+    <!-- Header. -->
+    <div id="header">
+        <div id="logo"><a href="http://tokyo-tower.org/cosplay/" title=""><img src="{% static "images/header_logo.png" %}" alt=""></a></div>
+
+        <div id="topMenu">
+            <ul class="links primary-links">
+            <li class="menu-295 first"><a href="http://tokyo-tower.org/cosplay/cosplayers" title="">Cosplayers</a></li>
+            <li class="menu-452"><a href="http://tokyo-tower.org/cosplay/costumes" title="All costumes">Costumes</a></li>
+            <li class="menu-496"><a href="http://tokyo-tower.org/cosplay/photos">Photos</a></li>
+            <li class="menu-296 last"><a href="http://tokyo-tower.org/cosplay/tutorials" title="">Tutorials</a></li>
+            </ul>        
+        </div>
+
+    </div>
+    <!-- EOF: #header -->
+
+	<!-- Content. -->
+    <div id="content">
+            <div class="clear-block" style="clear:both;"></div>
+
+            {% block content %}{% endblock %}
+      
+    </div>
+    <!-- EOF: #content -->
+
+</div><!-- EOF: #wrapper -->
+
+<!-- Footer -->
+<div id="footer">
+
+{% block footer %}
+{% endblock %}
+
+</div>
+
+<!-- EOF: #footer -->
+
+</div>      </div></body></html>
