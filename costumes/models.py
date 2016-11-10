@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 def costume_photo_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
@@ -17,6 +18,7 @@ class Costume(models.Model):
     series = models.CharField(max_length=200)
     variant = models.CharField(max_length=200)
     notes = models.TextField()
+    cosplayer = models.ForeignKey(User, on_delete=models.CASCADE, editable=False)
     def __str__(self):
         return self.series + ' - ' + self.character + ' [' + self.variant + '] '
 

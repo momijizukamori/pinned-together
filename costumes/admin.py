@@ -17,7 +17,17 @@ class ComponentInline(admin.StackedInline):
     extra = 3
 
 class CostumeAdmin(admin.ModelAdmin):
-
     inlines = [RefInline, PhotoInline, ComponentInline]
+    
+    def save_model(self, request, obj, form, change):
+        if getattr(obj, 'cosplayer', None) is None:
+            obj.cosplayer = request.user
+        obj.save()
+
+    def get_queryset(self, request):
+        qs = super(CostumeAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(cosplayer=request.user)
 
 admin.site.register(Costume, CostumeAdmin)
